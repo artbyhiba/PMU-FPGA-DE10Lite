@@ -1,0 +1,18 @@
+module SEG7_LUT_6(
+    input [23:0] IDIG,
+    output [6:0] OSEG0,
+    output [6:0] OSEG1,
+    output [6:0] OSEG2,
+    output [6:0] OSEG3,
+    output [6:0] OSEG4,
+    output [6:0] OSEG5
+);
+
+SEG7_LUT u0 (IDIG[3:0],   OSEG0);
+SEG7_LUT u1 (IDIG[7:4],   OSEG1);
+SEG7_LUT u2 (IDIG[11:8],  OSEG2);
+SEG7_LUT u3 (IDIG[15:12], OSEG3);
+SEG7_LUT u4 (IDIG[19:16], OSEG4);
+SEG7_LUT u5 (IDIG[23:20], OSEG5);
+
+endmodule
