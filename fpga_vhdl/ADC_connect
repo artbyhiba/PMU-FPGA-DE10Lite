@@ -1,0 +1,30 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ADC_connect is
+    port(
+        clk : in std_logic;
+        reset : in std_logic;
+        adc_data : in std_logic_vector(11 downto 0);
+        adc_valid : in std_logic;
+        led : out std_logic
+    );
+end entity;
+
+architecture rtl of ADC_connect is
+begin
+
+process(clk)
+begin
+    if rising_edge(clk) then
+        if reset = '1' then
+            led <= '0';
+        else
+            if adc_valid = '1' then
+                led <= adc_data(11);
+            end if;
+        end if;
+    end if;
+end process;
+
+end rtl;
